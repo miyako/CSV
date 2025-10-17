@@ -1,6 +1,40 @@
 # CSV
 component to export records in CSV (namespace: `CSV`)
 
+## usage
+
+```4d
+var $CSV : cs.CSV
+
+$CSV:=cs.CSV.new()
+
+
+ALL RECORDS([Table_1])
+ALL RECORDS([Table_2])
+
+$pTable1:=->[Table_1]
+$pTable2:=->[Table_2]
+
+/*
+	simple usage
+*/
+
+$CSV.exportSelectionTo(Folder(fk desktop folder).folder("csv-export"); $pTable)
+
+/*
+	advanced usage
+*/
+
+$options:={noHeader: False; noEOF: True; noBOM: False}
+$CSV.exportSelectionTo(Folder(fk desktop folder).folder("csv-export"); [$pTable1; $pTable2]; $options)
+
+/*
+	utitity 
+*/
+
+$CSV.exportTo(Folder(fk desktop folder).folder("csv-export"); $options)
+```
+
 ## exportSelectionTo(folder; tables{; options})
 
 |parameter|type|description|
