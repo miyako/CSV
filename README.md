@@ -1,5 +1,5 @@
 # CSV
-component to export records in CSV (namespace: `CSV`)
+Component to export records in CSV (namespace: `CSV`)
 
 ## usage
 
