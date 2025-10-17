@@ -1,0 +1,17 @@
+{
+  "name": "CSV",
+  "description": "Component to export records in CSV",
+  "authors": [
+    "Keisuke Miyako <keisuke.miyako@4d.com>"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/miyako/CSV",
+  "version": "20.0.0",
+  "tool": {
+    "platform": "macos",
+    "branch": "20.x",
+    "version": "20.7",
+    "build": "latest",
+    "arch": "arm"
+  }
+}
