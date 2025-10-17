@@ -26,15 +26,15 @@ component to export records in CSV (namespace: `CSV`)
 |folder|4D.Folder||
 |options|object||
 
-* internally calls `.exportSelectionTo` on all records of all tables
+* internally calls `.exportSelectionTo()` on all records of all tables
 
 ## points of interest
 
 * `4D.FileHandle` is used internally (utf-8, with BOM)
+* `This` is passed as `options` to `.open()`
 * does not use ORDA
-* exports generic method `.valueToCsv`
+* exports generic method `.valueToCsv()`
 * RFC 4180 is applied on each field, with type specific rules:
-
 
 ```4d
 var $CSV : cs.CSV
