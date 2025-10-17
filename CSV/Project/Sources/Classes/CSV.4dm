@@ -28,7 +28,7 @@ utf-8 options
 	
 Function writeBOM($fileHandle : 4D:C1709.FileHandle)
 	
-	If (Not:C34(OB Instance of:C1731($fileHandle; 4D:C1709.FileHandle))) || ($tableFileHandle.mode="read")
+	If (Not:C34(OB Instance of:C1731($fileHandle; 4D:C1709.FileHandle))) || ($fileHandle.mode="read")
 		return 
 	End if 
 	
@@ -121,6 +121,7 @@ Function exportSelectionTo($folder : 4D:C1709.Folder; $tables : Variant; $option
 		FIRST RECORD:C50($table->)
 		
 		$written:=False:C215
+		var $headers : Collection
 		$headers:=[]
 		
 		If (Not:C34($noHeader))
@@ -157,7 +158,10 @@ Function exportSelectionTo($folder : 4D:C1709.Folder; $tables : Variant; $option
 	
 Function exportTo($folder : 4D:C1709.Folder; $options : Object)
 	
+	var $tables : Collection
 	$tables:=[]
+	var $t : Integer
+	var $pTable : Pointer
 	For ($t; 1; Last table number:C254)
 		If (Not:C34(Is table number valid:C999($t)))
 			continue
