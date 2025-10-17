@@ -1,22 +1,30 @@
 # CSV
 component to export records in CSV (namespace: `CSV`)
 
-## exportSelectionTo(folder; tables)
+## exportSelectionTo(folder; tables{; options})
 
 |parameter|type|description|
 |-|-|-|
 |folder|4D.Folder||
 |tables|Variant|pointer to table, or a collection of pointers to tables|
+|options|object|see below|
+
+|option|type|description|
+|-|-|-|
+|noHeader|boolean|do not print field names in first line |
+|noEOF|boolean|do not print `EOF` after last record|
+|noBOM|boolean|do not print `BOM`|
 
 * current selection must be created beforehand
 * internally starts from first record
 * table structure name is used as file name
 
-## exportTo(folder)
+## exportTo(folder{; options})
 
 |parameter|type|description|
 |-|-|-|
 |folder|4D.Folder||
+|options|object||
 
 * internally calls `.exportSelectionTo` on all records of all tables
 
