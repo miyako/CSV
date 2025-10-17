@@ -125,7 +125,7 @@ Function exportSelectionTo($folder : 4D:C1709.Folder; $tables : Variant; $option
 		$headers:=[]
 		
 		If (Not:C34($noHeader))
-			For ($f; 1; Last field number:C255($t))
+			For ($f; 1; Get last field number:C255($t))
 				If (Not:C34(Is field number valid:C1000($t; $f)))
 					continue
 				End if 
@@ -140,7 +140,7 @@ Function exportSelectionTo($folder : 4D:C1709.Folder; $tables : Variant; $option
 				$tableFileHandle.writeText($EOL)
 			End if 
 			$line:=[]
-			For ($f; 1; Last field number:C255($t))
+			For ($f; 1; Get last field number:C255($t))
 				If (Not:C34(Is field number valid:C1000($t; $f)))
 					continue
 				End if 
@@ -162,7 +162,7 @@ Function exportTo($folder : 4D:C1709.Folder; $options : Object)
 	$tables:=[]
 	var $t : Integer
 	var $pTable : Pointer
-	For ($t; 1; Last table number:C254)
+	For ($t; 1; Get last table number:C254)
 		If (Not:C34(Is table number valid:C999($t)))
 			continue
 		End if 
@@ -176,7 +176,8 @@ Function exportTo($folder : 4D:C1709.Folder; $options : Object)
 	
 Function valueToCsv($value : Variant) : Text
 	
-	var $valueType:=Value type:C1509($value)
+	var $valueType : Integer
+	$valueType:=Value type:C1509($value)
 	
 	Case of 
 		: ($valueType=Is boolean:K8:9)
