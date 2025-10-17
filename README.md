@@ -22,7 +22,8 @@ component to export records in CSV (namespace: `CSV`)
 
 ## points of interest
 
-RFC 4180 is applied on each field, with type specific rules:
+* `4D.FileHandle` is used internally (utf-8, with BOM)
+* RFC 4180 is applied on each field, with type specific rules:
 
 ```4d
 var $CSV : cs.CSV
