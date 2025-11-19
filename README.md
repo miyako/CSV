@@ -9,9 +9,9 @@ Component to export records in CSV (namespace: `CSV`)
 ## usage
 
 ```4d
-var $CSV : cs.CSV
+var $CSV : cs.CSV.CSV
 
-$CSV:=cs.CSV.new()
+$CSV:=cs.CSV.CSV.new()
 
 
 ALL RECORDS([Table_1])
